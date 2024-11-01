@@ -7,3 +7,20 @@
   margin:0;
   padding:0;
 }
+#signupBg{
+  height:100vh;
+  overflow: hidden;
+  background-image: url("./assets/SignupBg.png");
+  background-size: cover;
+  background-position: center;
+  margin:0;
+  padding:0;
+}
+
+/* @media (min-width:993px) and (max-width: 1200px) {
+    #homeLanding{
+      background-color: black;
+      background-image: none;
+      color: blue;
+    }
+} */
