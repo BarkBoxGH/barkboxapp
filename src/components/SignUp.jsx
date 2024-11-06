@@ -1,64 +1,62 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import signUpBg from "../assets/signUpBg.png"
+import signUpBg from "../assets/signUpBg.png";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-  //state to navigate 
-  const navigate = useNavigate;
-  //state to store form data
-  const [formdata,setFormData]=useState({
-      firstname:'',
-      lastname:'',
-      email:'',
-      password:'',
-      role:'user'
-  })
-  //func to handle formsubmit
-  const handleSubmit=(event)=>{
-      event.preventDefault;
+  // State to navigate 
+  const navigate = useNavigate();
+  // State to store form data
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    role: 'user',
+  });
 
-      try {
-          
-      } catch (error) {
-          
-      }
-  }
- 
-return (
-  <section id="" className="h-[100vh] overflow-hidden bg-cover bg-center m-0 p-0 lg:grid lg:grid-rows-2" style={{backgroundImage:`url(${signUpBg})`}} >
-        <div className="h-[25%] mb-[5%] lg:h-[60%] ">
+  // Function to handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Implement your form submission logic here
+    console.log(formData); // Example: Log the form data for now
+  };
 
-        </div>
-      <div className="p-[5%] h-[100%] w-full  lg:lg:w-[90%] lg:ml-[5%] mt-[-10%] lg:pt-[1em]">
-          <form className="h-[100%] w-full flex flex-col lg:h-[100%]" onSubmit={handleSubmit}>
-
-             <div className="h-[11%] mb-[1em] lg:h-[100%] lg:mb-[5%]">
-             <label htmlFor="firstname" className="text-[1.5em]">Enter your firstname</label>
-             <input type="text" id="firstname" className="h-[60%] w-[100%] border-[3px] rounded-2xl lg:h-[100%]"/>
-             </div>
-
-             <div className="h-[11%] mb-[1em] lg:h-[100%] lg:mb-[5%]">
-             <label htmlFor="lastname" className="text-[1.5em]">Enter your lastname</label>
-             <input type="text" id="lastname" className="h-[60%] w-[100%] border-[3px] rounded-2xl lg:h-[100%]"/>
-             </div>
-
-             <div className="h-[11%] mb-[1em] lg:h-[100%] lg:mb-[5%]">
-             <label htmlFor="email" className="text-[1.5em]">Enter your email</label>
-             <input type="email" id="email" className="h-[60%] w-[100%] border-[3px] rounded-2xl lg:h-[100%]"/>
-             </div>
-
-             <div className="h-[11%] mb-[1em] lg:h-[100%] lg:mb-[5%]">
-             <label htmlFor="password" className="text-[1.5em]">Enter your password</label>
-             <input type="password" id="password" className="h-[60%] w-[100%] border-[3px] rounded-2xl lg:h-[100%]"/>
-             </div>
-
-             <button className="p-[0.5em] h-[8%] bg-[#A8DEF8] text-[1.5em] font-extrabold text-[black] lg:h-[100%] mt-[1em] rounded-lg lg:text-[2em]" type="submit">Create Account</button>
-             <p className="text-center text-[1.5em]">Already have an account? <Link to="/login" className="text-[blue]">Log In</Link></p>
+  return (
+    <section
+      className="h-screen overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: `url(${signUpBg})` }}
+    >
+      <div className="flex flex-col h-full justify-center items-center p-4 lg:p-0">
+        <div className="w-full max-w-md lg:max-w-lg bg-white rounded-lg shadow-lg p-6 mt-10 mb-10">
+          <h1 className="text-3xl font-bold text-center mb-6">Create an Account</h1>
+          <form className="flex flex-col" onSubmit={handleSubmit}>
+            {['firstname', 'lastname', 'email', 'password'].map((field) => (
+              <div className="mb-4" key={field}>
+                <label htmlFor={field} className="text-lg font-semibold">{`Enter your ${field}`}</label>
+                <input
+                  type={field === 'email' ? 'email' : field === 'password' ? 'password' : 'text'}
+                  id={field}
+                  className="mt-1 h-12 w-full border-2 border-gray-300 rounded-lg p-2 focus:outline-none focus:border-blue-500"
+                  onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
+                  required
+                />
+              </div>
+            ))}
+            <button
+              className="h-12 bg-[#A8DEF8] text-lg font-extrabold text-black rounded-lg hover:bg-blue-400 transition duration-300 mt-4"
+              type="submit"
+            >
+              Create Account
+            </button>
+            <p className="text-center text-lg mt-4">
+              Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Log In</Link>
+            </p>
           </form>
+        </div>
       </div>
-  </section>
-)
-}
+    </section>
+  );
+};
 
 export default SignUp;
