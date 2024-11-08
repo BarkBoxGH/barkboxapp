@@ -2,11 +2,11 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/HomePage'
-import SignUp from './components/SignUp'
-import LogIn from './components/LogIn'
 import Status from './components/Status'
 import VendorSignUp from './components/VendorSignUp'
 import VendorLogin from './components/VendorLogin'
+import UserSignUp from './components/UserSignUp'
+import UserLogin from './components/UserLogin'
 
 
 
@@ -17,12 +17,12 @@ function App() {
       element:<HomePage/>
     },
     {
-      path:"/signup",
-      element:<SignUp/>
+      path:"/usersignup",
+      element:<UserSignUp/>
     },
     {
-      path:"/login",
-      element:<LogIn/>
+      path:"/userlogin",
+      element:<UserLogin/>
     },
     {
       path:"/status",

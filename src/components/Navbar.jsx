@@ -1,36 +1,56 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLocationDot, faPhone, faBars } from "@fortawesome/free-solid-svg-icons";
+import MapLocation from "../innerComponents/MapLocation";
+import ClickToCall from "../innerComponents/ClickToCall";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  //state for wheteher menu is opened or closed
-  const [menuToggle, setMenuToggle] = useState(false);
-  //function to toggle menu
-  const toggleMenuFunc = () => {
-    setMenuToggle(!menuToggle);
-  }
-  return (
-    <div className="bg-[white] h-[7%] flex py-[1em] px-[0.5em] z-1 w-full lg:w-[100vw] lg:h-[10%] fixed">
-      <h1 className="font-extrabold text-[2em] mr-[70%]">logo</h1>
-      
+    const [isOpen, setIsOpen] = useState(false);
 
-      <FontAwesomeIcon icon={faBars} className="font-bold text-[2em]" onClick={toggleMenuFunc} />
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
-      {menuToggle && (
-        <ul className="absolute z-1 bg-[#A8DEF8] text-[black] flex flex-col gap-[1.8em] w-[45%] py-[1em] pl-[5%] text-[1.2em] font-semibold right-10 mt-[10%] lg:h-auto lg:mt-[3%] lg:w-[25%]">
-        <Link><li className="text-[1.5em]">Home</li></Link>
-        <Link><li className="text-[1.5em]">Shop</li></Link>
-        <Link><li className="text-[1.5em]">Vets</li></Link>
-        <Link><li className="text-[1.5em]">Grooming</li></Link>
-        <Link><li className="text-[1.5em]">Training</li></Link>
-        <Link><li className="text-[1.5em]">Bark-Alert</li></Link>
-      </ul>
-      )}
+    return (
+        <div id="Navbar" className="h-[10%] flex justify-between items-center p-4 border shadow-md bg-white fixed top-0 left-0 right-0 z-10 px-[5%]">
+            {/* Logo */}
+            <a href="#home">
+                <h1 className="text-[1.2em] font-extrabold">LOGO</h1>
+            </a>
 
-    </div>
-  )
-}
+            {/* Mobile Menu Icon */}
+            <button className="lg:hidden" onClick={toggleMenu}>
+                <FontAwesomeIcon icon={faBars} className="text-[1.5em]" />
+            </button>
 
-export default Navbar
+            {/* Navigation Links - Hidden on mobile and visible on desktop */}
+            <ul
+                id="nav-ul"
+                className={`${
+                    isOpen ? "flex" : "hidden"
+                } lg:flex flex-col lg:flex-row justify-between items-center w-full lg:w-[30%] font-bold absolute lg:static top-[10%] bg-white lg:bg-transparent p-4 lg:p-0 shadow-md lg:shadow-none z-10`}
+            >
+                <li><a href="#home">Home</a></li>
+                <li><a href="#webdev-info">Dogs</a></li>
+                <li><a href="#skills-section">Supplies</a></li>
+                <li><a href="#portfolio-section">Services</a></li>
+                <li><a href="#footer-section">Contact</a></li>
+            </ul>
+
+            {/* Icons - Hidden on mobile and visible on desktop */}
+            <ul
+                id="nav-icons"
+                className="hidden lg:flex justify-between items-center gap-4 w-[15%]"
+            >
+                
+
+                <MapLocation />
+
+                <ClickToCall />
+            </ul>
+        </div>
+    );
+};
+
+export default Navbar;
