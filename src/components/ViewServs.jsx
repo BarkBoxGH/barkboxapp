@@ -1,0 +1,65 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Navbar from "../innerComponents/Navbar";
+import F from "../services/features";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+const ViewServs = () => {
+  const navigate = useNavigate();
+ const isLoggedIn = () => {
+   const authToken = localStorage.getItem("authToken");
+   return authToken !== null && authToken !== "";
+ };
+
+  const handleServiceClick = (serviceUrl) => {
+    if (isLoggedIn()) {
+      navigate(serviceUrl);
+    } else {
+      toast.error(
+        "Oops! You have to create an account or sign in before proceeding."
+      );
+      navigate("/signup");
+    }
+  };
+
+  return (
+    <div>
+      <section>
+        <Navbar />
+        <div className="mt-[5%] h-full pt-[2em]">
+          <h2 className="text-[1.5em] text-center font-semibold italic mb-[2em]">
+            We provide you with easy access to the following services
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[85%] ml-auto mr-auto">
+            {F.SERVICES.map((service, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col border px-[2em] py-[3em] rounded-lg h-[400px] shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 cursor-pointer hover:z-10 hover:bg-gradient-to-r from-[#1E3A8A] to-[#60A5FA] hover:text-white"
+                  onClick={() => handleServiceClick(service.url)}
+                  style={{ transformOrigin: "center", willChange: "transform" }}
+                >
+                  <FontAwesomeIcon
+                    icon={service.icon}
+                    className="text-[4em] text-center text-[#1E3A8A] mb-[1em] transition-colors duration-300"
+                  />
+                  <h3 className="text-center text-[1.2em] font-bold mb-[1em]">
+                    {service.title}
+                  </h3>
+                  <p className="text-center  ">
+                    {service.description}
+                  </p>
+                  <button className="bg-[#1E3A8A] w-[60%] ml-auto mr-auto mt-[2.5em] py-[0.75em] text-white font-semibold rounded-md hover:bg-[#1b336a] transition-colors duration-300">
+                    Book Now
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default ViewServs;

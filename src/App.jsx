@@ -2,12 +2,13 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './components/HomePage'
-import Status from './components/Status'
-import VendorSignUp from './components/VendorSignUp'
-import VendorLogin from './components/VendorLogin'
-import UserSignUp from './components/UserSignUp'
-import UserLogin from './components/UserLogin'
-
+import ViewServs from './components/ViewServs'
+import VetServs from './components/VetServs'
+import SignUp from './components/Signup'
+import Login from './components/Login'
+import { ToastContainer } from 'react-toastify'
+import BookAppt from './components/BookAppt'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -17,29 +18,34 @@ function App() {
       element:<HomePage/>
     },
     {
-      path:"/usersignup",
-      element:<UserSignUp/>
+      path:"/signup",
+      element:<SignUp/>
     },
     {
-      path:"/userlogin",
-      element:<UserLogin/>
+      path:"/login",
+      element:<Login/>
     },
     {
-      path:"/status",
-      element:<Status/>
+      path:"/viewservices",
+      element:<ViewServs/>
     },
     {
-      path:"/vendorsignup",
-      element:<VendorSignUp/>
+      path:"/vetservices",
+      element:<VetServs/>
     },
     {
-      path:"/vendorlogin",
-      element:<VendorLogin/>
+      path:"book-appt",
+      element:<BookAppt/>
     }
-    
+
+ 
   ])
 
-  return <RouterProvider router={router}/>
+  return <div>
+    <RouterProvider router={router}/>
+    <ToastContainer />
+  </div>
+
 
 }
 
