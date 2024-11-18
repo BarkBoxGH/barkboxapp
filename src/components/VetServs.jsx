@@ -12,8 +12,7 @@ const VetServs = () => {
             <h1 className="text-[2em] mb-[0.5em]">A Special Touch</h1>
             <h3 className="text-[2em] font-bold mb-[1em]">DR SACKEY VETERINARY CLINIC</h3>
             <p className="mb-[1em]">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque
-              delectus architecto assumenda voluptatem iste illum culpa
+            Empower your patients to book or reschedule appointments online 24/7. Reduce average booking time from 8+ minutes by phone* to just a few clicks
             </p>
             <Link to="/book-appt">
             <button className="p-[0.6em] bg-[#1E3A8A] text-[white] rounded-md text-[1em] font-bold ">Book an Appointment</button></Link>

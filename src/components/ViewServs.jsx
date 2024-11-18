@@ -30,7 +30,7 @@ const ViewServs = () => {
           <h2 className="text-[1.5em] text-center font-semibold italic mb-[2em]">
             We provide you with easy access to the following services
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[85%] ml-auto mr-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[85%] ml-auto mr-auto gap-x-[2em]">
             {F.SERVICES.map((service, index) => {
               return (
                 <div
