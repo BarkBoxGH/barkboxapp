@@ -9,6 +9,12 @@ import Login from './components/Login'
 import { ToastContainer } from 'react-toastify'
 import BookAppt from './components/BookAppt'
 import 'react-toastify/dist/ReactToastify.css';
+import AdminSignUp from './components/AdminSignUp'
+import AdminLogin from './components/AdminLogin'
+import AdminDashboard from './components/AdminDashboard'
+import DashboardLayout from './layouts/DashboardLayout'
+import AdminAppts from './components/AdminAppts'
+import AdminClients from './components/AdminClients'
 
 
 function App() {
@@ -24,6 +30,34 @@ function App() {
     {
       path:"/login",
       element:<Login/>
+    },
+    {
+      path:"/admin/register",
+      element:<AdminSignUp/>
+    },
+    {
+      path:"/admin/login",
+      element:<AdminLogin/>
+    },
+    {
+      path:"/admin/dashboard",
+      element:<DashboardLayout/>,
+      children:[
+        {
+          index:true,
+          element:<AdminDashboard/>
+        },
+        {
+          path:"appointments",
+          element:<AdminAppts/>
+        },
+        {
+          path:"clients",
+          element:<AdminClients/>
+        }
+
+
+      ]
     },
     {
       path:"/viewservices",

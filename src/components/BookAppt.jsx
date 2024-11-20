@@ -70,7 +70,7 @@ const BookAppt = () => {
         // Prepare the data to send to the backend
         const appointmentData = JSON.stringify({
             service: "veterinary",
-            petOwner: "673641a0f3425bcbcc02e37f",
+           
             petName: formData.get('petName'),
             appointmentDate: selectedDate.toISOString().split('T')[0],
             appointmentTime: selectedTime,
@@ -195,7 +195,7 @@ const BookAppt = () => {
                                     type="text"
                                     name="reason"
                                     placeholder="Your reason for visiting"
-                                    className='h-[50%] w-[100%] py-[0.2em] border-2 border-gray-300 focus:border-[#1E3A8A] focus:outline-none' 
+                                    className='h-[100%] w-[100%] py-[0.2em] border-2 border-gray-300 focus:border-[#1E3A8A] focus:outline-none' 
                                 />
 
                                 {error && <p className="text-red-500 text-center">{error}</p>}

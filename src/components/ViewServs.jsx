@@ -8,12 +8,14 @@ const ViewServs = () => {
   const navigate = useNavigate();
  const isLoggedIn = () => {
    const authToken = localStorage.getItem("authToken");
+   console.log("AuthToken:",authToken);
    return authToken !== null && authToken !== "";
  };
 
   const handleServiceClick = (serviceUrl) => {
     if (isLoggedIn()) {
       navigate(serviceUrl);
+      console.log("User logged in");
     } else {
       toast.error(
         "Oops! You have to create an account or sign in before proceeding."

@@ -3,20 +3,27 @@ import Navbar from "../innerComponents/Navbar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import F from "../services/features"
 import Home2Bkg from "../assets/Home2Bkg.png"
-import pugFinal from "../assets/pugFinal.png"
+import dalmatian from "../assets/dalmatian.png"
+import Footer from "../innerComponents/Footer"
+import MeetTheDevs from "./MeetTheDevs"
 
 const HomePage = () => {
   return (
     <div>
-      <section id="homeBg" className="h-[100vh] overflow-hidden bg-[#1E3A8A] m-0 p-0 flex justify-content items-center px-[5%]">
+      <section id="homeBg" className="h-[100vh] overflow-hidden bg-[#1E3A8A] m-0 p-0 flex justify-content items-center">
         <Navbar />
-        <div className="flex flex-col w-[50%] pl-[10%]">
+        <div className="flex flex-col w-[50%] pl-[15%]">
           <h1 className="text-[3em] text-[white] font-bold w-[100%] mb-[0.5em]">Online Vet Booking System</h1>
           <p className="text-[1.2em] text-[white]">Find certified vets near you and schedule an appointment with the click of a button.</p>
-          <Link to="/viewservices"><button className="p-[0.6em] border-white border-2 rounded-md text-[1em] font-bold w-[40%] mt-[1em] text-[white]">View our Services</button></Link>
+          
+         <div className="flex flex-col gap-y-[1em]">
+         <Link to="/viewservices"><button className="p-[0.6em] border-white border-2 rounded-md text-[1em] font-bold w-[40%] mt-[1em] text-[white]">View our Services</button></Link>
+         <Link to="/admin/register"><button className="p-[0.6em] border-white border-2 rounded-md text-[1em] font-bold w-[40%] mt-[1em] text-[white]">Register a Service</button></Link>
+         </div>
+       
         </div>
-        <div className="w-[40%] mt-[20%] h-[100%]">
-          <img src={pugFinal} alt="" className=""/>
+        <div className="w-[50%] h-[100%] flex justify-end items-center ">
+          <img src={dalmatian} alt="" className="h-[150%] w-auto object-contain "/>
         </div>
         
       </section>
@@ -47,7 +54,8 @@ const HomePage = () => {
         } 
         )}
       </section>
-
+      <MeetTheDevs/>
+      <Footer/>
       
     </div>
 
