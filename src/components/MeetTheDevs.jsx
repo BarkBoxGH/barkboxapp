@@ -4,7 +4,7 @@ import meetDevWill from "../assets/meetDevWill.jpg"
 const developers = [
   
   {
-    name: "William Offei-Nyanteh",
+    name: "William Offei Nyanteh",
     role: "Backend Developer",
     image: meetDevWill,
     socialLinks: {
