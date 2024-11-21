@@ -18,6 +18,7 @@ const AdminAppts = () => {
     try {
       const fetchedAppts = await apiGetAppts();
       setAppointments(fetchedAppts.data);
+      console.log(fetchedAppts.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
       toast.error('Error fetching appointments');

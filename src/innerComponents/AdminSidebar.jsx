@@ -87,7 +87,7 @@ const AdminSidebar = () => {
           alt="Admin Profile"
           className="w-24 h-24 rounded-full border-4 border-blue-900 mb-4"
         />
-        <h3 className="text-blue-900 font-semibold text-lg">Admin Name</h3>
+        <h3 className="text-blue-900 font-semibold text-lg">Dr Sackey Vet Clinic</h3>
         <p className="text-sm text-gray-600">Vendor</p>
       </div>
       <button
