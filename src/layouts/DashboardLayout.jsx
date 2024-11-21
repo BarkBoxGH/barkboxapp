@@ -14,9 +14,9 @@ const DashboardLayout = () => {
             {/* Main Content Area */}
             <div className="flex-1 flex flex-col">
                 {/* Navbar */}
-                <header className="h-16 bg-white shadow flex items-center px-6">
+                {/* <header className="h-16 bg-white shadow flex items-center px-6">
                     <AdminNavbar />
-                </header>
+                </header> */}
 
                 {/* Main Content */}
                 <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">

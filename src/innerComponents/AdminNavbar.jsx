@@ -23,11 +23,11 @@ const AdminNavbar = () => {
       <div className="ml-auto flex items-center gap-4">
         <div className="w-12 h-12 rounded-full bg-gray-200 border-2 border-gray-300 flex items-center justify-center">
           {/* Placeholder for profile image */}
-          <span className="text-gray-500 text-xl font-bold">A</span>
+          <span className="text-gray-500 text-xl font-bold">a</span>
         </div>
         <div>
-          <p className="text-gray-800 font-semibold">Vendor's Name</p>
-          <p className="text-gray-600 text-sm">Admin</p>
+          <p className="text-gray-800 font-semibold">{}</p>
+          <p className="text-gray-600 text-sm">Vendor</p>
         </div>
       </div>
     </div>

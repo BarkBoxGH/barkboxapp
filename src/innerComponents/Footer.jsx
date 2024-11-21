@@ -27,8 +27,8 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-semibold mb-4">Contact Us</h2>
           <ul className="space-y-2">
-            <li>📍 123 Main Street, Anytown, USA</li>
-            <li><Link to="mailto:barkbox@gmail.com">📧 barkbox@example.com</Link></li>
+            <li>📍 Osu Plot 7, Accra GHANA</li>
+            <li><Link to="mailto:barkbox@gmail.com">📧 barkbox@gmail.com</Link></li>
             <li>📞 +233 595 742 231</li>
           </ul>
           <div className="mt-4 flex space-x-4">
