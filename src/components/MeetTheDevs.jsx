@@ -1,11 +1,12 @@
 import React from "react";
 import meetDevBene from "../assets/meetDevBene.jpg"
+import meetDevWill from "../assets/meetDevWill.jpg"
 const developers = [
   
   {
     name: "William Offei-Nyanteh",
     role: "Backend Developer",
-    image: "",
+    image: meetDevWill,
     socialLinks: {
       github: "https://github.com/janesmith",
       linkedin: "https://linkedin.com/in/janesmith",
