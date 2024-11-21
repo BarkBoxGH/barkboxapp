@@ -57,9 +57,11 @@ const BookAppt = () => {
         e.preventDefault();
         setLoading(true);
         setError('');
+        console.log(error);
 
 
     if (!selectedTime || !selectedDate) {
+        
         setError('Please select both a date and a time for your appointment.');
         setLoading(false);
         return;
@@ -82,7 +84,9 @@ const BookAppt = () => {
             // Call the API service function
             await apiBookAppt(appointmentData, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}`
+                    
                 }
             });
             toast.success("You have successfully scheduled an appointment! Check your email.");   
