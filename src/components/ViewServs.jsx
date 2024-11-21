@@ -6,11 +6,11 @@ import { toast } from "react-toastify";
 
 const ViewServs = () => {
   const navigate = useNavigate();
- const isLoggedIn = () => {
-   const authToken = localStorage.getItem("authToken");
-   console.log("AuthToken:",authToken);
-   return authToken !== null && authToken !== "";
- };
+  const isLoggedIn = () => {
+    const authToken = localStorage.getItem("authToken");
+    console.log("AuthToken:", authToken);
+    return authToken !== null && authToken !== "";
+  };
 
   const handleServiceClick = (serviceUrl) => {
     if (isLoggedIn()) {
@@ -29,9 +29,10 @@ const ViewServs = () => {
       <section>
         <Navbar />
         <div className="mt-[5%] h-full pt-[2em]">
-          <h2 className="text-[1.5em] text-center font-semibold italic mb-[2em]">
-            We provide you with easy access to the following services
+          <h2 className="text-[1.8em] sm:text-[2em] lg:text-[2.5em] text-center font-extrabold italic mb-[2em] px-[1em] bg-gradient-to-r from-[#1E3A8A] to-[#60A5FA] text-transparent bg-clip-text shadow-sm tracking-wide leading-tight">
+            We provide you with <span className="underline">easy access</span> to the following services
           </h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[85%] ml-auto mr-auto gap-x-[2em]">
             {F.SERVICES.map((service, index) => {
               return (

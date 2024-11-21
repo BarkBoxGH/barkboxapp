@@ -14,8 +14,7 @@ const Navbar = () => {
     useEffect(() => {
         const token = localStorage.getItem("authToken");
         if (token) {
-            // Fetch user data based on the token or set user state
-            setUser({ name: "User's Name", role: "User" }); // Example data
+            setUser({ name: "Jaide", role: "User" });
         }
     }, []);
 
@@ -25,48 +24,55 @@ const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
-        setUser(null)
+        setUser(null);
         toast.success("You have been successfully logged out. See you soon 🙂");
         navigate("/");
     };
 
     return (
-        <div id="Navbar" className="h-[10%] flex items-center justify-between p-4 bg-white shadow-md fixed top-0 left-0 right-0 z-10">
+        <div className="h-[10%] flex items-center justify-between px-6 py-4 bg-gradient-to-r from-white via-gray-100 to-gray-200 shadow-md fixed top-0 left-0 right-0 z-10">
             {/* Logo */}
-            <Link to="/" className="flex items-center text-[#1E3A8A]">
-                <h1 className="text-[1.5em] font-extrabold">BARKBOX</h1>
+            <Link to="/" className="flex items-center gap-2 text-[#1E3A8A]">
+                <h1 className="text-[1.8em] font-extrabold tracking-wide">BARKBOX</h1>
             </Link>
 
             {/* Mobile Menu Icon */}
-            <button className="lg:hidden" onClick={toggleMenu}>
-                <FontAwesomeIcon icon={faBars} className="text-[1.8em] text-[#1E3A8A]" />
+            <button
+                className="lg:hidden text-[#1E3A8A] text-[1.8em]"
+                onClick={toggleMenu}
+            >
+                <FontAwesomeIcon icon={faBars} />
             </button>
 
             {/* Navigation Links */}
             <ul
-                id="nav-ul"
-                className={`${isOpen ? "flex" : "hidden"
-                    } lg:flex flex-col lg:flex-row lg:items-center font-semibold text-[#333] absolute lg:static top-[10%] bg-white lg:bg-transparent p-4 lg:p-0 shadow-md lg:shadow-none z-10 space-y-4 lg:space-y-0 lg:space-x-6`}
+                className={`${
+                    isOpen ? "flex" : "hidden"
+                } lg:flex flex-col lg:flex-row lg:items-center font-medium text-[#333] bg-white lg:bg-transparent p-6 lg:p-0 shadow-lg lg:shadow-none absolute lg:static top-[10%] right-0 w-[70%] lg:w-auto z-10 space-y-6 lg:space-y-0 lg:space-x-8 rounded-lg lg:rounded-none transition-all duration-300`}
             >
-                <li className="hover:text-[#1E3A8A] transition-colors"><Link to="/">Home</Link></li>
-                <li className="hover:text-[#1E3A8A] transition-colors"><Link to="/viewservices">Services</Link></li>
-                <li className="hover:text-[#1E3A8A] transition-colors"><Link to="/about">About</Link></li>
+                <li className="hover:text-[#1E3A8A] transition-colors">
+                    <Link to="/">Home</Link>
+                </li>
+                <li className="hover:text-[#1E3A8A] transition-colors">
+                    <Link to="/viewservices">Services</Link>
+                </li>
+                <li className="hover:text-[#1E3A8A] transition-colors">
+                    <Link to="/about">About</Link>
+                </li>
+                <Link to="/viewservices" className="hidden lg:block">
+                    <button className="px-5 py-2 bg-gradient-to-r from-[#1E3A8A] to-[#334D89] text-white rounded-lg text-[1em] font-bold shadow-md hover:scale-105 transform transition-all">
+                        Book an Appointment
+                    </button>
+                </Link>
             </ul>
 
-            {/* Book an Appointment Button */}
-            <Link to="/viewservices" className="hidden lg:inline-block">
-                <button className="px-4 py-2 bg-[#1E3A8A] text-white rounded-md text-[1em] font-bold hover:bg-[#334D89] transition-colors">
-                    Book an Appointment
-                </button>
-            </Link>
-
             {/* Icons */}
-            <ul
-                id="nav-icons"
-                className="hidden lg:flex items-center gap-4 text-[#1E3A8A]"
-            >
+            <ul className="hidden lg:flex items-center gap-6 text-[#1E3A8A]">
                 <MapLocation />
-                <FontAwesomeIcon icon={faEnvelope} className="text-[1.3em] cursor-pointer hover:text-[#334D89] transition-colors" />
+                <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className="text-[1.3em] cursor-pointer hover:text-[#334D89] transition-colors"
+                />
                 <ClickToCall />
             </ul>
 
@@ -74,17 +80,19 @@ const Navbar = () => {
             {user ? (
                 <div className="flex items-center gap-4">
                     {/* User Avatar */}
-                    <div className="w-10 h-10 rounded-full bg-gray-200 border-2 border-gray-300 flex items-center justify-center">
-                        <span className="text-gray-500 text-xl font-bold">A</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gray-300 to-gray-400 flex items-center justify-center">
+                        <span className="text-white font-bold text-lg">
+                            {user.name[0]}
+                        </span>
                     </div>
 
                     {/* User Info */}
                     <div className="hidden lg:block">
-                        <p className="text-gray-800 font-semibold">{user.name}</p>
-                        <p className="text-gray-600 text-sm">{user.role}</p>
+                        <p className="text-gray-800 font-semibold">Jaide</p>
+                        <p className="text-gray-500 text-sm">User</p>
                     </div>
 
-                    {/* Logout Icon */}
+                    {/* Logout */}
                     <button
                         onClick={handleLogout}
                         className="text-[#1E3A8A] hover:text-[#334D89] transition-colors"
