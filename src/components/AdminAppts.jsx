@@ -17,8 +17,9 @@ const AdminAppts = () => {
   const fetchAppts = async () => {
     try {
       const fetchedAppts = await apiGetAppts();
-      setAppointments(fetchedAppts.data);
-      console.log(fetchedAppts.data);
+      const validAppts = fetchedAppts.data.filter((appt) => appt.petOwner);
+      setAppointments(validAppts);
+      console.log(validAppts);
     } catch (error) {
       console.error('Error fetching appointments:', error);
       toast.error('Error fetching appointments');
@@ -26,6 +27,7 @@ const AdminAppts = () => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     fetchAppts();
@@ -33,12 +35,15 @@ const AdminAppts = () => {
 
   // Filter appointments based on the search query
   const filteredAppointments = appointments.filter((appt) => {
-    const ownerName = `${appt.petOwner.firstName} ${appt.petOwner.lastName}`.toLowerCase();
-    const petName = appt.petName.toLowerCase();
+    const ownerName = appt.petOwner
+      ? `${appt.petOwner.firstName || ''} ${appt.petOwner.lastName || ''}`.toLowerCase()
+      : '';
+    const petName = appt.petName?.toLowerCase() || '';
     const search = searchQuery.toLowerCase();
-
+  
     return ownerName.includes(search) || petName.includes(search);
   });
+  
 
   // Pagination calculations
   const totalPages = Math.ceil(filteredAppointments.length / itemsPerPage);
@@ -117,8 +122,9 @@ const AdminAppts = () => {
                   } hover:bg-gray-200`}
                 >
                   <td className="py-2 px-4 border">
-                    {appt.petOwner.firstName + ' ' + appt.petOwner.lastName}
-                  </td>
+  {appt.petOwner ? `${appt.petOwner.firstName} ${appt.petOwner.lastName}` : 'N/A'}
+</td>
+
                   <td className="py-2 px-4 border">{appt.petName}</td>
                   <td className="py-2 px-4 border">
                     {new Date(appt.appointmentDate).toLocaleDateString()}

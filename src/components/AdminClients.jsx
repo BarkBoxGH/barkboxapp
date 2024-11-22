@@ -30,10 +30,13 @@ const AdminClients = () => {
 
   // Filter clients based on search term
   const filteredClients = clients.filter((client) => {
+    if (!client.petOwner) return false; // Skip if petOwner is null or undefined
+  
     const fullName = `${client.petOwner.firstName} ${client.petOwner.lastName}`.toLowerCase();
     const email = client.petOwner.email.toLowerCase();
     return fullName.includes(searchTerm.toLowerCase()) || email.includes(searchTerm.toLowerCase());
   });
+  
 
   // Pagination calculations
   const totalPages = Math.ceil(filteredClients.length / itemsPerPage);
@@ -85,39 +88,46 @@ const AdminClients = () => {
             </tr>
           </thead>
           <tbody>
-            {loading ? (
-              <tr>
-                <td colSpan="3" className="text-center py-4">
-                  Loading...
-                </td>
-              </tr>
-            ) : currentClients.length > 0 ? (
-              currentClients.map((client, index) => (
-                <tr
-                  key={index}
-                  className={`${
-                    index % 2 === 0 ? 'bg-gray-100' : 'bg-white'
-                  } hover:bg-gray-200`}
-                >
-                  <td className="py-2 px-4 border">
-                    {client.petOwner.firstName} {client.petOwner.lastName}
-                  </td>
-                  <td className="py-2 px-4 border">{client.petOwner.email}</td>
-                  <td className="py-2 px-4 border text-center">
-                    <a href={`mailto:${client.petOwner.email}`} className="text-blue-600">
-                      <FontAwesomeIcon icon={faComment} />
-                    </a>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="3" className="text-center py-4">
-                  No clients found.
-                </td>
-              </tr>
-            )}
-          </tbody>
+  {loading ? (
+    <tr>
+      <td colSpan="3" className="text-center py-4">
+        Loading...
+      </td>
+    </tr>
+  ) : currentClients.length > 0 ? (
+    currentClients.map((client, index) => (
+      <tr
+        key={index}
+        className={`${
+          index % 2 === 0 ? 'bg-gray-100' : 'bg-white'
+        } hover:bg-gray-200`}
+      >
+        <td className="py-2 px-4 border">
+          {client.petOwner
+            ? `${client.petOwner.firstName} ${client.petOwner.lastName}`
+            : 'Unknown'}
+        </td>
+        <td className="py-2 px-4 border">
+          {client.petOwner ? client.petOwner.email : 'No email'}
+        </td>
+        <td className="py-2 px-4 border text-center">
+          {client.petOwner && (
+            <a href={`mailto:${client.petOwner.email}`} className="text-blue-600">
+              <FontAwesomeIcon icon={faComment} />
+            </a>
+          )}
+        </td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="3" className="text-center py-4">
+        No clients found.
+      </td>
+    </tr>
+  )}
+</tbody>
+
         </table>
       </div>
 
