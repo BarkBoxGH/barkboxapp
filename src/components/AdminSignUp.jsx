@@ -58,14 +58,14 @@ const AdminSignUp = () => {
 
     return (
         <section className="h-[100vh] bg-[#F0F8FA] flex items-center justify-center">
-            <div className="w-full max-w-7xl h-[80%] grid grid-cols-3 items-center">
+            <div className="w-[100%] px-[5%] h-[90%] lg:max-w-7xl lg:h-[80%] grid lg:grid-cols-3 items-center">
                 {/* Left bird illustration */}
-                <div className="justify-center items-center lg:block">
+                <div className="hidden justify-center items-center lg:block">
                     <img src={adminSide} alt="Bird illustration" className="w-80 h-80" />
                 </div>
 
                 {/* Form container */}
-                <div className="h-[90%] bg-white shadow-md rounded-3xl px-8 py-10 text-center flex flex-col justify-center relative">
+                <div className="h-[100%] lg:h-[90%] bg-white shadow-md rounded-3xl px-8 lg:py-10 text-center flex flex-col justify-center relative">
                     {/* BarkBox Header */}
                     <div className="w-12 h-12 mx-auto mb-4">
                         <h3 className="font-bold text-[1.5em] text-center">BarkBox</h3>
@@ -159,7 +159,7 @@ const AdminSignUp = () => {
                 </div>
 
                 {/* Right bird illustration */}
-                <div className="flex justify-center items-center lg:block">
+                <div className="hidden justify-center items-center lg:block">
                     <img
                         src={adminSide2} // Right bird image placeholder
                         alt="Bird illustration"

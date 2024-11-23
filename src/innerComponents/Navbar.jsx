@@ -30,10 +30,13 @@ const Navbar = () => {
     };
 
     return (
-        <div className="h-[10%] flex items-center justify-between px-6 py-4 bg-gradient-to-r from-white via-gray-100 to-gray-200 shadow-md fixed top-0 left-0 right-0 z-10">
+        <div className="h-[10%] w-full flex items-center justify-between px-4 sm:px-6 lg:px-10 py-2 sm:py-4 bg-gradient-to-r from-white via-gray-100 to-gray-200 shadow-md fixed top-0 left-0 right-0 z-10 overflow-x-hidden">
+
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 text-[#1E3A8A]">
-                <h1 className="text-[1.8em] font-extrabold tracking-wide">BARKBOX</h1>
+                <h1 className="text-[1.5em] sm:text-[1.8em] font-extrabold tracking-wide">
+                    BARKBOX
+                </h1>
             </Link>
 
             {/* Mobile Menu Icon */}
@@ -88,8 +91,8 @@ const Navbar = () => {
 
                     {/* User Info */}
                     <div className="hidden lg:block">
-                        <p className="text-gray-800 font-semibold">Jaide</p>
-                        <p className="text-gray-500 text-sm">User</p>
+                        <p className="text-gray-800 font-semibold">{user.name}</p>
+                        <p className="text-gray-500 text-sm">{user.role}</p>
                     </div>
 
                     {/* Logout */}

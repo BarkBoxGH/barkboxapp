@@ -27,17 +27,17 @@ const AdminSidebar = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg h-full flex flex-col justify-between px-6 pt-10">
+    <div className="bg-white shadow-lg h-full flex flex-col justify-between px-6 pt-10 ">
       {/* Logo */}
       <div>
-        <div className="mb-10 text-center">
+        <div className="mb-[1em] lg:mb-6 text-center">
           <Link to="/" className="text-center">
             <h1 className="text-2xl font-extrabold text-blue-900 tracking-wide">BARKBOX</h1>
           </Link>
         </div>
 
         {/* Menu */}
-        <nav className="flex flex-col gap-4">
+        <nav className="flex flex-col gap-4 h-[60%] flex-grow">
           <Link to="/admin/dashboard">
             <button
               className={`flex items-center gap-4 w-full p-3 rounded-lg font-semibold ${
@@ -80,22 +80,24 @@ const AdminSidebar = () => {
       </div>
 
       {/* Profile Details Card */}
-      <div className="bg-gray-100 mb-[1em] p-6 mt-4 rounded-lg shadow-md flex flex-col items-center">
+      <div className="bg-gray-100 mb-[2em] p-6 mt-4 rounded-lg shadow-md flex flex-col items-center">
      
         <img
           src={aboutVet}
           alt="Admin Profile"
           className="w-24 h-24 rounded-full border-4 border-blue-900 mb-4"
         />
-        <h3 className="text-blue-900 font-semibold text-lg">Dr Sackey Vet Clinic</h3>
-        <p className="text-sm text-gray-600">Vendor</p>
-      </div>
-      <button
+        <h3 className="text-blue-900 font-semibold text-lg text-center">Dr Sackey Vet Clinic</h3>
+        <p className="text-sm text-gray-600 text-center mb-[0.5em]">Vendor</p>
+
+        <button
         onClick={handleLogout}
         className="text-white bg-[#1E3A8A] px-4 py-2 rounded-lg font-medium hover:bg-[#3B82F6] transition mb-[1em]"
       >
         Logout
       </button>
+      </div>
+      
 
       {/* Confirm Logout Modal */}
       <ConfirmModal

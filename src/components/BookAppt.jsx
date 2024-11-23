@@ -98,12 +98,12 @@ const BookAppt = () => {
 
     return (
         <div>
-            <section className='h-[100vh] pt-[3em] bg-white'>
+            <section className='h-[100vh] pt-[20%] lg:pt-[3em] bg-white'>
                 <Navbar />
-                <div className='h-[85%] w-[75%] mt-[2em] ml-auto mr-auto border-[5px] pt-[1em] border-[#1E3A8A] rounded-2xl px-[2em] shadow-lg bg-white'>
+                <div className='h-auto lg:h-[85%] lg:w-[75%] mt-[2em] ml-auto mr-auto lg:border-[5px] pt-[1em]  lg:border-[#1E3A8A] rounded-2xl px-[2em] lg:shadow-lg bg-white'>
                     <h1 className='font-bold text-[1.8em] text-center mb-[1em] text-[#1E3A8A]'>Schedule an Appointment</h1>
-                    <div className='flex h-[70%] gap-x-[1em]'>
-                        <div className='w-[50%] p-[1em]'>
+                    <div className='lg:flex grid h-[70%] gap-x-[1em]'>
+                        <div className='lg:w-[50%] p-[1em]'>
                             <button
                                 onClick={handleShowCalendar}
                                 className={`p-[0.5em] rounded-lg mb-2 font-semibold ${
@@ -162,8 +162,8 @@ const BookAppt = () => {
                                 )}
                             </div>
                         </div>
-                        <div className='w-[50%] p-[1em]'>
-                            <h3 className='font-bold text-center text-[#1E3A8A]'>Enter your Details</h3>
+                        <div className='lg:w-[50%] p-[1em]'>
+                            <h3 className='text-[1.7em] lg:text-[1.2em] font-bold text-center text-[#1E3A8A]'>Enter your Details</h3>
                             <form onSubmit={handleSubmit} className='flex flex-col px-[10%] pt-[5%] gap-y-[1em]'>
                                 <input
                                     type="text"
@@ -189,7 +189,7 @@ const BookAppt = () => {
                                 <div className='flex justify-center'>
                                     <button
                                         type="submit"
-                                        className="p-[0.6em] bg-[#1E3A8A] text-white rounded-md text-[1em] font-bold transition duration-300"
+                                        className="mt-[1em] p-[1em] lg:p-[0.6em] bg-[#1E3A8A] text-white rounded-md text-[1.3em] lg:text-[1em] font-bold transition duration-300"
                                         disabled={loading}
                                     >
                                         {loading ? 'Confirming...' : 'Confirm Appointment'}

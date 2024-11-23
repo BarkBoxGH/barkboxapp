@@ -26,7 +26,7 @@ const ViewServs = () => {
 
   return (
     <div>
-      <section>
+      <section className="mt-[20%] lg:mt-0">
         <Navbar />
         <div className="mt-[5%] h-full pt-[2em]">
           <h2 className="text-[1.8em] sm:text-[2em] lg:text-[2.5em] text-center font-extrabold italic mb-[2em] px-[1em] bg-gradient-to-r from-[#1E3A8A] to-[#60A5FA] text-transparent bg-clip-text shadow-sm tracking-wide leading-tight">

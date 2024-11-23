@@ -25,17 +25,17 @@ const developers = [
 
 const MeetTheDevs = () => {
   return (
-   <section className="h-[100vh]">
-     <div className="h-[100%] bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+   <section className="h-auto lg:h-[100vh] mb-[10%] overflow-y-hidden w-full overflow-x-hidden">
+     <div className="h-[100%] w-[100%] bg-gray-50 py-12 px-4 lg:px-8">
       <div className="h-[10%] text-center mb-12">
         <h2 className="text-3xl font-extrabold text-gray-900">Meet the Developers</h2>
-        <p className="mt-4 text-lg text-gray-500">Our talented team behind the scenes</p>
+        <p className="mt-4 text-[1.5em] lg:text-lg text-gray-500">Our talented team behind the scenes</p>
       </div>
       <div className="h-[80%] w-[60%] ml-auto mr-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
   {developers.map((developer) => (
     <div
       key={developer.name}
-      className="h-[60%] bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
+      className="lg:h-[60%] h-[100%] bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
     >
       {/* Image Container */}
       <div className="h-[70%] overflow-hidden flex justify-center items-center">
