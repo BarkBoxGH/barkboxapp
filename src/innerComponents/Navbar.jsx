@@ -18,10 +18,6 @@ const Navbar = () => {
         }
     }, []);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
     const handleLogout = () => {
         localStorage.removeItem("authToken");
         setUser(null);
@@ -42,7 +38,7 @@ const Navbar = () => {
             {/* Mobile Menu Icon */}
             <button
                 className="lg:hidden text-[#1E3A8A] text-[1.8em]"
-                onClick={toggleMenu}
+                onClick={()=>setIsOpen(false)}
             >
                 <FontAwesomeIcon icon={faBars} />
             </button>

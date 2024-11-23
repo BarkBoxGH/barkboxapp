@@ -10,8 +10,8 @@ const developers = [
     name: "William Offei Nyanteh",
     role: "Backend Developer",
     image: meetDevWill,
-    website: "https://benedictadavour.netlify.app/",
-    linkedin: "https://www.linkedin.com/in/eba-davour"
+    website: "https://ownyanteh.github.io",
+    linkedin: "https://www.linkedin.com/in/ownyanteh"
 
   },
   {
