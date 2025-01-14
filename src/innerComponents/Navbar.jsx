@@ -13,20 +13,20 @@ const Navbar = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("authToken");
-        if (token) {
-            setUser({ name: "Jaide", role: "User" });
-        }
+        // if (token) {
+        //     setUser({ name: {name}, role: "User" });
+        // }
     }, []);
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
         setUser(null);
-        toast.success("You have been successfully logged out. See you soon 🙂");
+        toast.success("You have been successfully logged out. See you again soon 🙂");
         navigate("/");
     };
 
     return (
-        <div className="h-[10%] w-full flex items-center justify-between px-4 sm:px-6 lg:px-10 py-2 sm:py-4 bg-gradient-to-r from-white via-gray-100 to-gray-200 shadow-md fixed top-0 left-0 right-0 z-10 overflow-x-hidden">
+        <div className="h-[10%] w-full flex items-center justify-between px-4 sm:px-6 lg:px-10 py-2 sm:py-4 bg-gradient-to-r from-white via-gray-100 to-gray-200 shadow-md fixed top-0 left-0 right-0 z-10 overflow-x-hidden overflow-y-hidden">
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 text-[#1E3A8A]">

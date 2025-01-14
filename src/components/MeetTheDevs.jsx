@@ -46,7 +46,7 @@ const MeetTheDevs = () => {
                 />
               </div>
               {/* Developer Info */}
-              <h3 className="mt-4 text-xl font-semibold text-gray-800">{developer.name}</h3>
+              <h3 className="mt-4 text-xl font-semibold text-gray-800 ">{developer.name}</h3>
               <p className="text-gray-500">{developer.role}</p>
               {/* Developer Links */}
               <div className="mt-4 flex justify-center space-x-4">
